@@ -1,4 +1,4 @@
-import {createContext, Dispatch, useContext, useReducer} from "react";
+import {createContext, Dispatch, useReducer} from "react";
 import {Action, LOGIN, LOGOUT} from "../data/AuthContext.data.ts";
 import {Outlet} from "react-router-dom";
 
@@ -27,14 +27,4 @@ export const AuthContextProvider = () => {
   return (
     <AuthContext.Provider value={{state, dispatch}}><Outlet /></AuthContext.Provider>
   )
-}
-
-export const useAuthContext = () => {
-  const context = useContext(AuthContext);
-
-  if (!context) {
-    throw new Error('useAuthContext has to be used only inside AuthContextProvider!');
-  }
-
-  return context;
 }

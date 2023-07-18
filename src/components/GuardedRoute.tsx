@@ -1,5 +1,5 @@
-import {useAuthContext} from "../features/auth/context/AuthContext.tsx";
 import {Navigate, Outlet} from "react-router-dom";
+import {useAuthContext} from "../features/auth/hooks/useAuthContext.ts";
 
 const GuardedRoute = () => {
   const { state } = useAuthContext();
