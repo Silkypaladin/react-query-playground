@@ -2,6 +2,8 @@ import {useForm} from "react-hook-form";
 import {Button, FormControl, FormErrorMessage, FormLabel, Input, Stack} from "@chakra-ui/react";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {LoginFormSchema, loginFormSchema} from "./login-schema.ts";
+import {login} from "../api/login.ts";
+import {useQueryClient} from "react-query";
 
 type Props = {
   onSuccess: (data: LoginFormSchema) => void;
@@ -19,10 +21,17 @@ const LoginForm = ({onSuccess}: Props) => {
     defaultValues: DEFAULT_FORM_STATE,
     resolver: zodResolver(loginFormSchema)
   });
+  const queryClient = useQueryClient();
 
-  const onSubmit = (data: LoginFormSchema) => {
+  const onSubmit = async (data: LoginFormSchema) => {
     reset(DEFAULT_FORM_STATE);
-    onSuccess(data);
+    try {
+      await login(data);
+      await queryClient.invalidateQueries(['user']);
+      onSuccess(data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
