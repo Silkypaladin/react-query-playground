@@ -1,14 +1,22 @@
 import './App.css'
-import {router} from "./router/router.tsx";
-import {RouterProvider} from "react-router-dom";
-import {QueryClientProvider} from "react-query";
-import {queryClient} from "./lib/react-query.ts";
+import Private from "./router/private-routes.tsx";
+import Public from "./router/public-routes.tsx";
+import {BrowserRouter} from "react-router-dom";
+import {useMe} from "./hooks/useMe.ts";
+import Loading from "./layouts/Loading/Loading.tsx";
 
 function App() {
+  const {isLoading, isSuccess, data} = useMe();
+
+  if (isLoading) {
+    return <Loading />
+  }
+
+  const isLoggedIn = isSuccess && !!data.user;
   return (
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router}/>
-    </QueryClientProvider>
+    <BrowserRouter>
+      {isLoggedIn ? <Private/> : <Public/>}
+    </BrowserRouter>
   )
 }
 
