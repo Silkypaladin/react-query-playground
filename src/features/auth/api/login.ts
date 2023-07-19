@@ -1,4 +1,4 @@
-import {UserResponse} from "../data/user-response.model.ts";
+import {UserResponse} from "../data/user-response.ts";
 import {axios} from "../../../lib/axios.ts";
 
 export interface LoginCredentialsDto {

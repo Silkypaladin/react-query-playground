@@ -19,22 +19,22 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to="/events"
+              to="/products"
               className={({isActive}) =>
                 isActive ? classes.active : undefined
               }
             >
-              Events
+              Products
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="/newsletter"
+              to="/profile"
               className={({isActive}) =>
                 isActive ? classes.active : undefined
               }
             >
-              Newsletter
+              Profile
             </NavLink>
           </li>
         </ul>

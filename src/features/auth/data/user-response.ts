@@ -1,4 +1,4 @@
-import {User} from "./user.model.ts";
+import {User} from "./user.ts";
 
 export interface UserResponse {
   user: User;

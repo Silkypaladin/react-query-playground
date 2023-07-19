@@ -6,7 +6,7 @@ import {login} from "../api/login.ts";
 import {useQueryClient} from "react-query";
 
 type Props = {
-  onSuccess: (data: LoginFormSchema) => void;
+  onSuccess: () => void;
 };
 
 const DEFAULT_FORM_STATE = {email: '', password: ''};
@@ -28,7 +28,7 @@ const LoginForm = ({onSuccess}: Props) => {
     try {
       await login(data);
       await queryClient.invalidateQueries(['user']);
-      onSuccess(data);
+      onSuccess();
     } catch (error) {
       console.log(error);
     }

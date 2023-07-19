@@ -1,5 +1,5 @@
 import {useQuery} from "react-query";
-import {UserResponse} from "../features/auth/data/user-response.model.ts";
+import {UserResponse} from "../features/auth/data/user-response.ts";
 import {getMe} from "../features/users/api/getMe.ts";
 
 export const useMe = () => {
