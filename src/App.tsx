@@ -3,7 +3,8 @@ import Private from "./router/private-routes.tsx";
 import Public from "./router/public-routes.tsx";
 import {BrowserRouter} from "react-router-dom";
 import {useMe} from "./hooks/useMe.ts";
-import Loading from "./layouts/Loading/Loading.tsx";
+import Loading from "./components/Loading/Loading.tsx";
+import {Toaster} from "react-hot-toast";
 
 function App() {
   const {isLoading, isSuccess, data} = useMe();
@@ -14,9 +15,12 @@ function App() {
 
   const isLoggedIn = isSuccess && !!data.user;
   return (
-    <BrowserRouter>
-      {isLoggedIn ? <Private/> : <Public/>}
-    </BrowserRouter>
+    <>
+      <Toaster position={'bottom-center'}/>
+      <BrowserRouter>
+        {isLoggedIn ? <Private/> : <Public/>}
+      </BrowserRouter>
+    </>
   )
 }
 

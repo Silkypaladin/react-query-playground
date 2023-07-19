@@ -2,7 +2,7 @@ import {Navigate, Route, Routes} from 'react-router-dom';
 import RootLayout from "../layouts/Root/Root.tsx";
 import HomePage from "../pages/Home.tsx";
 import {lazy, Suspense} from "react";
-import Loading from "../layouts/Loading/Loading.tsx";
+import Loading from "../components/Loading/Loading.tsx";
 
 const ProductsPage = lazy(() => import('../pages/Products.tsx'));
 
