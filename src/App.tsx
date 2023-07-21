@@ -3,7 +3,7 @@ import Private from "./router/private-routes.tsx";
 import Public from "./router/public-routes.tsx";
 import {BrowserRouter} from "react-router-dom";
 import {useMe} from "./hooks/useMe.ts";
-import Loading from "./components/Loading/Loading.tsx";
+import Loading from "./components/Loading.tsx";
 import {Toaster} from "react-hot-toast";
 
 function App() {

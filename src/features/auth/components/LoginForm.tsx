@@ -4,14 +4,16 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {LoginFormSchema, loginFormSchema} from "./login-schema.ts";
 import {login} from "../api/login.ts";
 import {useQueryClient} from "react-query";
+import {notifyError} from "../../../lib/hot-toast.ts";
+import {ApiError} from "../../../data/ApiError.ts";
 
-type Props = {
+type LoginFormProps = {
   onSuccess: () => void;
 };
 
 const DEFAULT_FORM_STATE = {email: '', password: ''};
 
-const LoginForm = ({onSuccess}: Props) => {
+const LoginForm = ({onSuccess}: LoginFormProps) => {
   const {
     handleSubmit,
     register,
@@ -30,7 +32,7 @@ const LoginForm = ({onSuccess}: Props) => {
       await queryClient.invalidateQueries(['user']);
       onSuccess();
     } catch (error) {
-      console.log(error);
+      notifyError((error as ApiError).message);
     }
   }
 
