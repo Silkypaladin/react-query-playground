@@ -1,15 +1,9 @@
 import {Card, CardBody, Heading, Stack, Image, Text} from "@chakra-ui/react";
+import {Product} from "../data/product.ts";
 
-interface ProductProps {
-  image: string;
-  name: string;
-  price: number;
-  id: string;
-}
-
-const SingleProduct = ({id, image, name, price}: ProductProps) => {
+const SingleProduct = ({_id, image, name, price}: Product) => {
   return (
-    <Card id={id} maxW='sm'>
+    <Card id={_id} maxW='sm'>
       <CardBody>
         <Image
           src={image}
