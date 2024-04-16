@@ -6,7 +6,7 @@ import {useMe} from "./hooks/useMe.ts";
 import Loading from "./components/Loading.tsx";
 import {Toaster} from "react-hot-toast";
 
-function App() {
+const App = () => {
   const {isLoading, isSuccess, data} = useMe();
 
   if (isLoading) {
@@ -24,4 +24,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

@@ -40,7 +40,7 @@ const Navbar = () => {
               Products
             </NavLink>
             <NavLink
-              to='/profile'
+              to='/orders'
               className={({isActive}) =>
                 isActive ? classes.active : undefined
               }

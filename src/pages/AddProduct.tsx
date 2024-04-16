@@ -1,5 +1,5 @@
-import AddProductForm from "../features/products/components/AddProductForm.tsx";
 import {useNavigate} from "react-router-dom";
+import {AddProductForm} from "../features/products/components/AddProductForm.tsx";
 
 const AddProductPage = () => {
   const navigate = useNavigate();

@@ -6,13 +6,14 @@ import {NavLink} from "react-router-dom";
 
 const ProductsList = () => {
   const {data} = useProducts();
-  console.log(data);
 
   return (
     <VStack spacing={'12px'} align={'center'}>
-      <Button colorScheme='teal' size='md'>
-        <NavLink to='/add-product'>Add New Product</NavLink>
-      </Button>
+      <NavLink to='add-product'>
+        <Button colorScheme='teal' size='md'>
+          Add New Product
+        </Button>
+      </NavLink>
       {
         !data?.products.length ?
           <Text fontSize='2xl'>No data to display.</Text> :
